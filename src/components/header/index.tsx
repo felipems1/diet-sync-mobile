@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.green,
     borderBottomRightRadius: 24,
     borderBottomLeftRadius: 24,
-    marginBottom: 14,
+    marginBottom: 16,
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight! + 34 : 34,
   },
   content: {
@@ -67,5 +67,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     color: colors.white,
+    fontWeight: '600',
   },
 })

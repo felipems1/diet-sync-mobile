@@ -10,6 +10,7 @@ import { levelOptions } from '@/src/constants/levelOptions'
 import { objectiveOptions } from '@/src/constants/objectiveOptions'
 import { useDataStore } from '@/src/store/data'
 import { Button } from '@/src/components/ui/button'
+import { router } from 'expo-router'
 
 const schema = z.object({
   gender: z.string({ required_error: 'O sexo é obrigatório!' }),
@@ -32,6 +33,8 @@ export default function StepTwo() {
 
   const handleCreateDiet = (data: FormData) => {
     setStepTwo(data)
+
+    router.push('/diet')
   }
 
   return (
