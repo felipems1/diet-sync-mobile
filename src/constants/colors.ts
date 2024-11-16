@@ -4,8 +4,8 @@ export const colors = {
   white: '#FFFFFF',
   orange: '#FF8C00',
 
-  textPrimary: '#333333',  
+  textPrimary: '#333333',
   textSecondary: '#666666',
 
-  border: '#D1D1D1', 
-};
+  border: '#D1D1D1',
+}

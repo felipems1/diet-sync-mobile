@@ -1,24 +1,24 @@
-import { Stack } from "expo-router";
+import { Stack } from 'expo-router'
 
 export default function RootLayout() {
   return (
     <Stack>
-      <Stack.Screen 
+      <Stack.Screen
         name="index"
         options={{
-          headerShown: false
+          headerShown: false,
         }}
       />
-      <Stack.Screen 
-        name="create-diet/step-one"
+      <Stack.Screen
+        name="create-diet/step-one/index"
         options={{
-          headerShown: false
+          headerShown: false,
         }}
       />
-      <Stack.Screen 
-        name="create-diet/step-two"
+      <Stack.Screen
+        name="create-diet/step-two/index"
         options={{
-          headerShown: false
+          headerShown: false,
         }}
       />
     </Stack>

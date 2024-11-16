@@ -1,20 +1,21 @@
-import { View, Text, Image, StyleSheet, Pressable } from 'react-native'
+import { View, Text, Image, StyleSheet } from 'react-native'
 import { colors } from '../constants/colors'
 import { Link } from 'expo-router'
+import { Button } from '../components/ui/button'
 
 export default function Presentation() {
   return (
     <View style={styles.container}>
-      <Image source={require('../assets/images/logo.png')} />
+      <Image source={require('../assets/images/logo.png')} alt="" />
 
       <Text style={styles.title}>Diet Sync</Text>
 
-      <Text style={styles.description}>Sua dieta personalizada com inteligência artificial.</Text>
+      <Text style={styles.description}>
+        Sua dieta personalizada com inteligência artificial.
+      </Text>
 
       <Link href="/create-diet/step-one" asChild>
-        <Pressable style={styles.button}>
-          <Text style={styles.buttonText}>Gerar dieta</Text>
-        </Pressable>
+        <Button text="Começar" color={colors.green} textColor={colors.white} />
       </Link>
     </View>
   )
@@ -25,13 +26,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingLeft: 16,
-    paddingRight: 16
+    paddingHorizontal: 16,
   },
   title: {
     color: colors.green,
     fontSize: 32,
-    fontWeight: 500
+    fontWeight: 500,
   },
   description: {
     fontSize: 16,
@@ -39,20 +39,6 @@ const styles = StyleSheet.create({
     width: 240,
     textAlign: 'center',
     marginTop: 8,
-    marginBottom: 8
+    marginBottom: 36,
   },
-  button: {
-    backgroundColor: colors.green,
-    width: '100%',
-    height: 40,
-    borderRadius: 4,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 32
-  },
-  buttonText: {
-    color: colors.white,
-    fontSize: 16,
-    fontWeight: 'bold'
-  }
 })

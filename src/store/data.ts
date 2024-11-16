@@ -1,8 +1,8 @@
 import { create } from 'zustand'
 import { User } from '../types/user'
 
-type dataStepOne = Omit<User, "gender" | "objective" | "level">
-type dataStepTwo = Pick<User, "gender" | "objective" | "level">
+type dataStepOne = Omit<User, 'gender' | 'objective' | 'level'>
+type dataStepTwo = Pick<User, 'gender' | 'objective' | 'level'>
 
 type DataState = {
   user: User
@@ -12,16 +12,16 @@ type DataState = {
 
 export const useDataStore = create<DataState>((set) => ({
   user: {
-    name: "",
-    age: "",
-    level: "",
-    objective: "",
-    gender: "",
-    height: "",
-    weight: ""
+    name: '',
+    age: '',
+    level: '',
+    objective: '',
+    gender: '',
+    height: '',
+    weight: '',
   },
 
-  setStepOne: (data) => set((state) => ({ user: {...state.user, data} })),
+  setStepOne: (data) => set((state) => ({ user: { ...state.user, data } })),
 
-  setStepTwo: (data) => set((state) => ({ user: {...state.user, data} }))
+  setStepTwo: (data) => set((state) => ({ user: { ...state.user, data } })),
 }))

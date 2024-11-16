@@ -1,14 +1,21 @@
-import { colors } from "@/src/constants/colors";
-import { Feather } from "@expo/vector-icons";
-import { router } from "expo-router";
-import { Platform, Pressable, SafeAreaView, StatusBar, StyleSheet, Text, View } from "react-native";
+import { colors } from '@/src/constants/colors'
+import { Feather } from '@expo/vector-icons'
+import { router } from 'expo-router'
+import {
+  Platform,
+  Pressable,
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native'
 
 interface HeaderProps {
   title: string
 }
 
 export function Header({ title }: HeaderProps) {
-
   const handleGoBack = () => {
     router.back()
   }
@@ -36,7 +43,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 24,
     borderBottomLeftRadius: 24,
     marginBottom: 14,
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight! + 34 : 34
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight! + 34 : 34,
   },
   content: {
     padding: 20,
@@ -54,7 +61,7 @@ const styles = StyleSheet.create({
   },
   title: {
     flexDirection: 'row',
-    gap: 8
+    gap: 8,
   },
   text: {
     fontSize: 20,

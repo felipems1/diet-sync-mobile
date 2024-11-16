@@ -1,8 +1,15 @@
-import { FlatList, Modal, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { Controller } from 'react-hook-form'
-import { colors } from '@/src/constants/colors';
-import { Feather } from '@expo/vector-icons';
-import { useState } from 'react';
+import {
+  FlatList,
+  Modal,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native'
+import { Control, Controller } from 'react-hook-form'
+import { colors } from '@/src/constants/colors'
+import { Feather } from '@expo/vector-icons'
+import { useState } from 'react'
 
 interface OptionsProps {
   label: string
@@ -11,7 +18,8 @@ interface OptionsProps {
 
 interface SelectProps {
   name: string
-  control: any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  control: Control<any>
   placeholder?: string
   error?: string
   options: OptionsProps[]
@@ -20,23 +28,33 @@ interface SelectProps {
 export function Select(props: SelectProps) {
   const [visible, setVisible] = useState(false)
 
- return (
-   <View style={styles.container}>
-      <Controller 
-        control={props.control} 
+  return (
+    <View style={styles.container}>
+      <Controller
+        control={props.control}
         name={props.name}
-        render={({ field: { onChange, onBlur, value } }) => (
+        render={({ field: { onChange, value } }) => (
           <>
-            <TouchableOpacity style={styles.select} onPress={() => setVisible(true)}>
-              <Text>
-                {value ? props.options.find(option => option.value === value)?.label : props.placeholder}
+            <TouchableOpacity
+              style={styles.select}
+              onPress={() => setVisible(true)}
+            >
+              <Text style={styles.selectText}>
+                {value
+                  ? props.options.find((option) => option.value === value)
+                      ?.label
+                  : props.placeholder}
               </Text>
-              <Feather name='arrow-down' size={16} color={colors.textPrimary} />
+              <Feather
+                name="arrow-down"
+                size={16}
+                color={colors.textSecondary}
+              />
             </TouchableOpacity>
 
-            <Modal 
+            <Modal
               visible={visible}
-              animationType='fade'
+              animationType="fade"
               transparent={true}
               onRequestClose={() => setVisible(false)}
             >
@@ -51,7 +69,7 @@ export function Select(props: SelectProps) {
                     data={props.options}
                     keyExtractor={(item) => item.value.toString()}
                     renderItem={({ item }) => (
-                      <TouchableOpacity 
+                      <TouchableOpacity
                         style={styles.option}
                         onPress={() => {
                           onChange(item.value)
@@ -66,16 +84,16 @@ export function Select(props: SelectProps) {
               </TouchableOpacity>
             </Modal>
           </>
-        )}  
+        )}
       />
       {props.error && <Text style={styles.errorText}>{props.error}</Text>}
-   </View>
-  );
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 16
+    marginBottom: 16,
   },
   select: {
     flexDirection: 'row',
@@ -85,27 +103,30 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     borderWidth: 1,
     borderColor: colors.border,
-    borderRadius: 8
+    borderRadius: 8,
+  },
+  selectText: {
+    color: colors.textSecondary,
   },
   modalContainer: {
     backgroundColor: 'rgba(0,0,0, 0.5)',
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   modalContent: {
     backgroundColor: '#ddd',
     marginHorizontal: 12,
     borderRadius: 8,
-    padding: 20
+    padding: 20,
   },
   option: {
     paddingVertical: 12,
     backgroundColor: '#ccc',
     borderRadius: 8,
-    paddingHorizontal: 8
+    paddingHorizontal: 8,
   },
   errorText: {
     color: colors.red,
-    marginTop: 4
+    marginTop: 4,
   },
 })

@@ -1,10 +1,17 @@
-import { KeyboardTypeOptions, StyleSheet, Text, TextInput, View } from 'react-native';
-import { Controller } from 'react-hook-form'
-import { colors } from '@/src/constants/colors';
+import {
+  KeyboardTypeOptions,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native'
+import { Control, Controller } from 'react-hook-form'
+import { colors } from '@/src/constants/colors'
 
 interface InputProps {
   name: string
-  control: any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  control: Control<any>
   placeholder?: string
   rules?: object
   error?: string
@@ -12,42 +19,43 @@ interface InputProps {
 }
 
 export function Input(props: InputProps) {
- return (
-   <View style={styles.container}>
-      <Controller 
-        control={props.control} 
+  return (
+    <View style={styles.container}>
+      <Controller
+        control={props.control}
         name={props.name}
         rules={props.rules}
         render={({ field: { onChange, onBlur, value } }) => (
-          <TextInput 
+          <TextInput
             style={styles.input}
             placeholder={props.placeholder}
+            placeholderTextColor={colors.textSecondary}
             onBlur={onBlur}
             value={value}
             onChangeText={onChange}
             keyboardType={props.keyboardType}
           />
-        )}  
+        )}
       />
 
       {props.error && <Text style={styles.errorText}>{props.error}</Text>}
-   </View>
-  );
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 16
+    marginBottom: 16,
   },
   input: {
     height: 44,
     paddingHorizontal: 12,
     borderWidth: 1,
     borderColor: colors.border,
-    borderRadius: 8
+    borderRadius: 8,
   },
   errorText: {
     color: colors.red,
-    marginTop: 4
-  }
+    marginTop: 4,
+  },
 })
