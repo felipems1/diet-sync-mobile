@@ -9,6 +9,18 @@ export default function RootLayout() {
           headerShown: false
         }}
       />
+      <Stack.Screen 
+        name="create-diet/step-one"
+        options={{
+          headerShown: false
+        }}
+      />
+      <Stack.Screen 
+        name="create-diet/step-two"
+        options={{
+          headerShown: false
+        }}
+      />
     </Stack>
   )
 }
