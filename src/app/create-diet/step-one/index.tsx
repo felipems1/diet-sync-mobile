@@ -77,7 +77,6 @@ export default function StepOne() {
         <Button
           text="Avançar"
           color={colors.orange}
-          textColor={colors.white}
           onPress={handleSubmit(handleNextStep)}
         />
       </ScrollView>

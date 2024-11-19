@@ -29,7 +29,6 @@ export function Header({ title }: HeaderProps) {
           </Pressable>
           <View style={styles.title}>
             <Text style={styles.text}>{title}</Text>
-            {/* <Feather name="loader" size={20} color={colors.white} /> */}
           </View>
         </View>
       </View>

@@ -71,7 +71,6 @@ export default function StepTwo() {
         <Button
           text="Gerar dieta"
           color={colors.orange}
-          textColor={colors.white}
           onPress={handleSubmit(handleCreateDiet)}
         />
       </ScrollView>

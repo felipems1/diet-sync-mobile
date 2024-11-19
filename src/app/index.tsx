@@ -1,9 +1,13 @@
 import { View, Text, Image, StyleSheet } from 'react-native'
 import { colors } from '../constants/colors'
-import { Link } from 'expo-router'
+import { router } from 'expo-router'
 import { Button } from '../components/ui/button'
 
 export default function Presentation() {
+  const handleStart = () => {
+    router.replace('/create-diet/step-one')
+  }
+
   return (
     <View style={styles.container}>
       <Image source={require('../assets/images/logo.png')} alt="" />
@@ -14,9 +18,7 @@ export default function Presentation() {
         Sua dieta personalizada com inteligência artificial.
       </Text>
 
-      <Link href="/create-diet/step-one" asChild>
-        <Button text="Começar" color={colors.green} textColor={colors.white} />
-      </Link>
+      <Button text="Começar" color={colors.green} onPress={handleStart} />
     </View>
   )
 }
