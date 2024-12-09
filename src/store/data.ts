@@ -20,8 +20,6 @@ export const useDataStore = create<DataState>((set) => ({
     height: '',
     weight: '',
   },
-
-  setStepOne: (data) => set((state) => ({ user: { ...state.user, data } })),
-
-  setStepTwo: (data) => set((state) => ({ user: { ...state.user, data } })),
+  setStepOne: (data) => set((state) => ({ user: { ...state.user, ...data } })),
+  setStepTwo: (data) => set((state) => ({ user: { ...state.user, ...data } })),
 }))

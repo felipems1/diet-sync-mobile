@@ -6,11 +6,9 @@ import { Ionicons } from '@expo/vector-icons'
 import { useQuery } from '@tanstack/react-query'
 import { Link } from 'expo-router'
 import {
-  Platform,
   Pressable,
   ScrollView,
   Share,
-  StatusBar,
   StyleSheet,
   Text,
   View,
@@ -27,7 +25,7 @@ export default function Diet() {
     queryKey: ['diet'],
     queryFn: async () => {
       try {
-        const response = await api.post<RespondeData>('/create', user)
+        const response = await api.post<RespondeData>('/api/create-diet', user)
 
         return response.data.data
       } catch (err) {
@@ -66,9 +64,9 @@ export default function Diet() {
   if (error) {
     return (
       <View style={styles.loading}>
-        <Text style={styles.loadingText}>Falha ao gerar dieta!</Text>
-        <Link href="/">
-          <Text style={styles.loadingText}>Tente novamente</Text>
+        <Text style={styles.errorText}>Falha ao gerar dieta!</Text>
+        <Link href="/" style={styles.errorButton}>
+          <Text style={styles.errorButtonText}>Tente novamente</Text>
         </Link>
       </View>
     )
@@ -154,22 +152,41 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingHorizontal: 16,
   },
   loadingText: {
     fontSize: 20,
     color: colors.textPrimary,
     marginBottom: 8,
   },
+  errorText: {
+    fontSize: 24,
+    color: colors.red,
+    marginBottom: 8,
+    fontWeight: 'bold',
+  },
+  errorButton: {
+    marginTop: 8,
+    backgroundColor: colors.green,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 12,
+    width: '100%',
+  },
+  errorButtonText: {
+    fontSize: 16,
+    color: colors.white,
+    textAlign: 'center',
+  },
   container: {
     flex: 1,
-    paddingBottom: 40,
+    paddingBottom: 8,
   },
   containerHeader: {
     backgroundColor: colors.green,
     borderBottomRightRadius: 24,
     borderBottomLeftRadius: 24,
     marginBottom: 16,
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight! + 34 : 34,
   },
   contentHeader: {
     padding: 20,

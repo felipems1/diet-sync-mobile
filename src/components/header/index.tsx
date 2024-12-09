@@ -1,15 +1,7 @@
 import { colors } from '@/src/constants/colors'
 import { Feather } from '@expo/vector-icons'
 import { router } from 'expo-router'
-import {
-  Platform,
-  Pressable,
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native'
+import { Pressable, SafeAreaView, StyleSheet, Text, View } from 'react-native'
 
 interface HeaderProps {
   title: string
@@ -39,10 +31,10 @@ export function Header({ title }: HeaderProps) {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.green,
-    borderBottomRightRadius: 24,
-    borderBottomLeftRadius: 24,
+    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: 20,
     marginBottom: 16,
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight! + 34 : 34,
+    paddingTop: 4,
   },
   content: {
     padding: 20,
