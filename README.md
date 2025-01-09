@@ -2,13 +2,14 @@
 
 **Descrição:**
 
-Este projeto é um aplicativo móvel que utiliza inteligência artificial para criar dietas personalizadas com base nos objetivos do usuário, ajudando a alcançar resultados e metas de saúde de forma prática e eficiente.
+Este projeto é um aplicativo móvel que utiliza inteligência artificial (Gemini AI) para criar dietas personalizadas com base nos objetivos do usuário, ajudando a alcançar resultados e metas de saúde de forma prática e eficiente.
 
 **Tecnologias Utilizadas:**
 
 * Expo
 * React Native
 * TypeScript
+* Gemini AI
 * Zod
 * React-Hook-Form
 * React Query
